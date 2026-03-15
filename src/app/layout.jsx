@@ -6,8 +6,8 @@ import BreadcrumbSchema from '@/components/BreadcrumbSchema';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
 import { Playfair_Display, Inter } from 'next/font/google';
 
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' });
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap', weight: ['400', '700', '800'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap', weight: ['400', '500', '600', '700'] });
 
 export const metadata = {
     title: {
@@ -57,6 +57,8 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
             <head>
+                {/* Preload Hero Image */}
+                <link rel="preload" fetchPriority="high" as="image" href="/_next/image?url=%2Fphotos%2Fhero-eduardo-boxer-home.jpg&w=1200&q=70" />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}

@@ -60,8 +60,8 @@ export default function HomePage() {
                     fill
                     priority
                     fetchPriority="high"
-                    quality={85}
-                    sizes="(max-width: 768px) 100vw, 100vw"
+                    quality={70}
+                    sizes="(max-width: 768px) 100vw, 1200px"
                     className="hero-bg-image"
                 />
                 <div className="container" style={{ width: '100%' }}>
@@ -245,6 +245,7 @@ export default function HomePage() {
                                     borderRadius: '16px',
                                     display: 'block'
                                 }}
+                                quality={60}
                                 loading="lazy"
                                 fetchPriority="low"
                             />
@@ -284,7 +285,7 @@ export default function HomePage() {
                     alt="Off-leash dog training session in an open field"
                     fill
                     sizes="100vw"
-                    quality={85}
+                    quality={55}
                     style={{ objectFit: 'cover' }}
                     loading="lazy"
                     fetchPriority="low"
@@ -399,6 +400,8 @@ export default function HomePage() {
                     sizes="100vw"
                     quality={55}
                     style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
+                    loading="lazy"
+                    fetchPriority="low"
                 />
                 <div style={{
                     position: 'absolute',
