@@ -1,4 +1,5 @@
 import './globals.css';
+import Script from 'next/script';
 import { SITE_CONFIG } from '@/config/siteConfig';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -64,6 +65,18 @@ export default function RootLayout({ children }) {
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
                 />
             </head>
+            <Script
+                src="https://www.googletagmanager.com/gtag/js?id=G-1HS5XKTT4E"
+                strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-1HS5XKTT4E');
+                `}
+            </Script>
             <body>
                 <Header />
                 <BreadcrumbSchema />
