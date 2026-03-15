@@ -7,17 +7,20 @@ export default function StickyMobileCTA() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            // Show after scrolling down 300px
-            if (window.scrollY > 300) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
-        };
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // Show when the hero section is NOT visible (scrolled past)
+                setIsVisible(!entry.isIntersecting);
+            },
+            { threshold: 0 }
+        );
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        const hero = document.querySelector('.hero');
+        if (hero) observer.observe(hero);
+
+        return () => {
+            if (hero) observer.unobserve(hero);
+        };
     }, []);
 
     return (

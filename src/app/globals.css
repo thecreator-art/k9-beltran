@@ -2,33 +2,24 @@
 
 :root {
   /* ── PHOTO-DERIVED PALETTE ── */
-  --primary: #2D5016;
-  /* Deep Forest Green — nav/footer only */
+  --primary: #2D5016; /* Deep Forest Green */
   --primary-dark: #1E3610;
   --primary-light: #3D6B1E;
-  --accent: #8C4F14;
-  /* Burnt Amber — Eduardo's hoodie */
+  --accent: #8C4F14; /* Burnt Amber */
   --accent-dark: #6F3D0E;
   --accent-light: #B46A24;
-  --gold: #C9A87C;
-  /* Warm Sand — dry California grass */
+  --gold: #C9A87C; /* Warm Sand */
   --bg-dark: #1E3610;
   --bg-light: #F7F4EF;
-  /* Warm Off-White — overcast sky */
   --bg-section: #EDE9E2;
   --text-dark: #1C1C1C;
-  /* Deep Charcoal */
   --text-muted: #5A5040;
-  /* Warm brown-grey */
   --text-light: #8F8070;
   --white: #ffffff;
   --cream: #F7F4EF;
   --sand: #C9A87C;
-  /* Warm Sand dividers */
   --sage: #566A46;
-  /* Muted Sage — distant hills */
   --border: #DDD5C5;
-  /* Warm parchment border */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.09);
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.13);
@@ -39,6 +30,7 @@
   --max-width: 1180px;
   --font-heading: var(--font-playfair), Georgia, serif;
   --font-body: var(--font-inter), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
 }
 
 /* RESET */

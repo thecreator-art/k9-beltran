@@ -4,10 +4,11 @@ import { SITE_CONFIG } from '@/config/siteConfig';
 import { SERVICES } from '@/config/services';
 import { HOMEPAGE_FAQS } from '@/config/faqs';
 import { ALL_LOCATIONS, PRIMARY_CITIES } from '@/config/locations';
+import dynamic from 'next/dynamic';
 import ContactForm from '@/components/ContactForm';
-import FAQAccordion from '@/components/FAQAccordion';
-import ReviewGrid from '@/components/ReviewGrid';
-import InstagramSection from '@/components/InstagramSection';
+const FAQAccordion = dynamic(() => import('@/components/FAQAccordion'));
+const ReviewGrid = dynamic(() => import('@/components/ReviewGrid'));
+const InstagramSection = dynamic(() => import('@/components/InstagramSection'));
 import TransformationCTA from '@/components/TransformationCTA';
 
 
@@ -60,7 +61,7 @@ export default function HomePage() {
                     priority
                     fetchPriority="high"
                     quality={85}
-                    sizes="100vw"
+                    sizes="(max-width: 768px) 100vw, 100vw"
                     className="hero-bg-image"
                 />
                 <div className="container" style={{ width: '100%' }}>
@@ -107,6 +108,8 @@ export default function HomePage() {
                                 height={800}
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 style={{ height: 'auto', width: '100%', maxWidth: '520px', objectFit: 'contain', display: 'block' }}
+                                loading="lazy"
+                                fetchPriority="low"
                                 className="sound-familiar-hero-img"
                             />
                         </div>
@@ -242,6 +245,8 @@ export default function HomePage() {
                                     borderRadius: '16px',
                                     display: 'block'
                                 }}
+                                loading="lazy"
+                                fetchPriority="low"
                             />
                         </div>
 
@@ -281,6 +286,8 @@ export default function HomePage() {
                     sizes="100vw"
                     quality={85}
                     style={{ objectFit: 'cover' }}
+                    loading="lazy"
+                    fetchPriority="low"
                 />
                 {/* Dark Gradient Overlay for readability */}
                 <div style={{
