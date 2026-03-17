@@ -5,10 +5,10 @@ import { SERVICES } from '@/config/services';
 import { HOMEPAGE_FAQS } from '@/config/faqs';
 import { ALL_LOCATIONS, PRIMARY_CITIES } from '@/config/locations';
 import dynamic from 'next/dynamic';
-import ContactForm from '@/components/ContactForm';
-const FAQAccordion = dynamic(() => import('@/components/FAQAccordion'));
-const ReviewGrid = dynamic(() => import('@/components/ReviewGrid'));
-const InstagramSection = dynamic(() => import('@/components/InstagramSection'));
+const FAQAccordion = dynamic(() => import('@/components/FAQAccordion'), { ssr: false });
+const ReviewGrid = dynamic(() => import('@/components/ReviewGrid'), { ssr: false });
+const InstagramSection = dynamic(() => import('@/components/InstagramSection'), { ssr: false });
+const ContactForm = dynamic(() => import('@/components/ContactForm'), { ssr: false });
 import TransformationCTA from '@/components/TransformationCTA';
 
 
@@ -58,9 +58,9 @@ export default function HomePage() {
                     src="/photos/hero-eduardo-boxer-home.jpg"
                     alt="Eduardo Beltran working a boxer during a Shepards K9 training session in Murrieta"
                     fill
-                    priority
+                    priority={true}
                     fetchPriority="high"
-                    quality={75}
+                    quality={68}
                     sizes="(max-width: 640px) 100vw, (max-width: 1200px) 90vw, 1600px"
                     className="hero-bg-image"
                 />
@@ -170,7 +170,7 @@ export default function HomePage() {
                             <Link key={service.id} href={service.href} className={service.featured ? 'service-card featured' : 'service-card'}>
                                 {service.image && (
                                     <div className="service-card-image">
-                                        <Image src={service.image} alt={service.name} width={420} height={280} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
+                                        <Image src={service.image} alt={service.name} width={420} height={280} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} loading="lazy" />
                                         {service.featured && <div className="featured-badge">Popular</div>}
                                     </div>
                                 )}
@@ -360,6 +360,7 @@ export default function HomePage() {
                                     width={400}
                                     height={500}
                                     sizes="(max-width: 768px) 50vw, 400px"
+                                    loading="lazy"
                                     style={{ height: '280px', width: 'auto', objectFit: 'contain', display: 'block', transform: 'translateY(-10px)' }}
                                 />
                             </div>

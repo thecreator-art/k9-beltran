@@ -3,6 +3,7 @@ const nextConfig = {
     images: {
         formats: ['image/avif', 'image/webp'],
         qualities: [55, 60, 75],
+        minimumCacheTTL: 604800,
     },
     experimental: {
         workerThreads: false,
