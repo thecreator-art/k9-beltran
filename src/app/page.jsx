@@ -60,8 +60,8 @@ export default function HomePage() {
                     fill
                     priority
                     fetchPriority="high"
-                    quality={60}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+                    quality={75}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1200px) 90vw, 1600px"
                     className="hero-bg-image"
                 />
                 <div className="container" style={{ width: '100%' }}>
