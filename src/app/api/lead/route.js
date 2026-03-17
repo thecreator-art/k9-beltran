@@ -44,27 +44,23 @@ export async function POST(request) {
         await fs.mkdir(leadsDir, { recursive: true });
         await fs.appendFile(path.join(leadsDir, 'leads.ndjson'), `${JSON.stringify(submission)}\n`, 'utf8');
 
-        if (process.env.LEAD_WEBHOOK_URL) {
-            const response = await fetch(process.env.LEAD_WEBHOOK_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    ...(process.env.LEAD_WEBHOOK_SECRET
-                        ? { Authorization: `Bearer ${process.env.LEAD_WEBHOOK_SECRET}` }
-                        : {}),
-                },
-                body: JSON.stringify(submission),
-                cache: 'no-store',
-            });
+        // GHL / LeadConnector Webhook
+        const WEBHOOK_URL = process.env.LEAD_WEBHOOK_URL || 'https://services.leadconnectorhq.com/hooks/4DeH3g2CLc50xEdY5i4k/webhook-trigger/edfc8c08-e760-4c91-b925-78229e4a6ca2';
 
-            if (!response.ok) {
-                return NextResponse.json(
-                    { ok: false, error: 'Lead was stored locally, but the webhook rejected it.' },
-                    { status: 502 }
-                );
-            }
+        const response = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(submission),
+            cache: 'no-store',
+        });
+
+        if (!response.ok) {
+            console.error('GHL Webhook rejected the lead');
         }
-    } catch {
+
+    } catch (err) {
+        console.error('Lead process error:', err.message);
+        // We still return OK if local storage worked, or a specific error if you prefer
         return NextResponse.json(
             { ok: false, error: 'Lead submission failed. Please call Eduardo directly.' },
             { status: 500 }
