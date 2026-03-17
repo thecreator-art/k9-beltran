@@ -5,10 +5,10 @@ import { SERVICES } from '@/config/services';
 import { HOMEPAGE_FAQS } from '@/config/faqs';
 import { ALL_LOCATIONS, PRIMARY_CITIES } from '@/config/locations';
 import dynamic from 'next/dynamic';
-const FAQAccordion = dynamic(() => import('@/components/FAQAccordion'), { ssr: false });
-const ReviewGrid = dynamic(() => import('@/components/ReviewGrid'), { ssr: false });
-const InstagramSection = dynamic(() => import('@/components/InstagramSection'), { ssr: false });
-const ContactForm = dynamic(() => import('@/components/ContactForm'), { ssr: false });
+const FAQAccordion = dynamic(() => import('@/components/FAQAccordion'));
+const ReviewGrid = dynamic(() => import('@/components/ReviewGrid'));
+const InstagramSection = dynamic(() => import('@/components/InstagramSection'));
+const ContactForm = dynamic(() => import('@/components/ContactForm'));
 import TransformationCTA from '@/components/TransformationCTA';
 
 
