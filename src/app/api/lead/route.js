@@ -39,28 +39,35 @@ export async function POST(request) {
         userAgent: request.headers.get('user-agent') || '',
     };
 
+    // Separate local storage from the main webhook process
+    // On Vercel, the file system is read-only, so this will fail gracefully.
     try {
         const leadsDir = process.env.LEAD_STORAGE_DIR || path.join(process.cwd(), 'data');
         await fs.mkdir(leadsDir, { recursive: true });
         await fs.appendFile(path.join(leadsDir, 'leads.ndjson'), `${JSON.stringify(submission)}\n`, 'utf8');
+    } catch (err) {
+        console.warn('Local lead storage skipped (expected on Vercel):', err.message);
+    }
 
+    try {
         // GHL / LeadConnector Webhook
         const WEBHOOK_URL = process.env.LEAD_WEBHOOK_URL || 'https://services.leadconnectorhq.com/hooks/4DeH3g2CLc50xEdY5i4k/webhook-trigger/edfc8c08-e760-4c91-b925-78229e4a6ca2';
 
-        const response = await fetch(WEBHOOK_URL, {
+        const ghlResponse = await fetch(WEBHOOK_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(submission),
             cache: 'no-store',
         });
 
-        if (!response.ok) {
+        if (!ghlResponse.ok) {
             console.error('GHL Webhook rejected the lead');
+            // If GHL fails, we want to know, but we might still return OK to the user 
+            // to avoid scaring them away if the lead was caught elsewhere.
         }
 
     } catch (err) {
-        console.error('Lead process error:', err.message);
-        // We still return OK if local storage worked, or a specific error if you prefer
+        console.error('Critical Lead Process Error:', err.message);
         return NextResponse.json(
             { ok: false, error: 'Lead submission failed. Please call Eduardo directly.' },
             { status: 500 }
