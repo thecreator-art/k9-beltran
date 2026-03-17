@@ -15,23 +15,96 @@ export const metadata = {
 
 export default function ThankYouPage() {
     return (
-        <main className="bg-white min-h-[70vh] flex flex-col items-center justify-center py-32 px-6 border-t border-zinc-200">
-            <div className="max-w-2xl text-center">
-                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
-                    <span className="text-4xl">✓</span>
+        <main style={{ 
+            backgroundColor: 'var(--bg-light)', 
+            minHeight: '80vh', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            padding: '100px 24px',
+            textAlign: 'center'
+        }}>
+            <div style={{ 
+                maxWidth: '700px', 
+                backgroundColor: 'white', 
+                padding: '60px 40px', 
+                borderRadius: '24px', 
+                boxShadow: 'var(--shadow-lg)',
+                border: '1px solid var(--border)'
+            }}>
+                <div style={{ 
+                    width: '80px', 
+                    height: '80px', 
+                    backgroundColor: 'var(--primary)', 
+                    borderRadius: '50%', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    margin: '0 auto 32px',
+                    boxShadow: '0 8px 16px rgba(45, 80, 22, 0.2)'
+                }}>
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-black text-zinc-900 mb-6 uppercase tracking-tight">
-                    Evaluation Request Received
-                </h1>
-                <p className="text-xl text-zinc-700 leading-relaxed mb-8">
-                    Eduardo Beltran or a member of the Shepards K9 team will reach out to you shortly to discuss your dog and confirm your initial evaluation.
+
+                <p style={{ 
+                    fontFamily: 'var(--font-heading)', 
+                    color: 'var(--accent)', 
+                    fontWeight: 700, 
+                    fontSize: '14px', 
+                    letterSpacing: '2px', 
+                    textTransform: 'uppercase',
+                    marginBottom: '16px'
+                }}>
+                    Submission Successful
                 </p>
-                <div className="flex justify-center gap-4 flex-wrap">
-                    <Link href="/" className="inline-block px-8 py-4 bg-red-700 hover:bg-red-600 text-white font-bold tracking-wide uppercase rounded transition-colors shadow flex-shrink-0">
-                        Return to Homepage
+
+                <h1 style={{ 
+                    fontFamily: 'var(--font-heading)', 
+                    fontSize: 'clamp(32px, 5vw, 48px)', 
+                    color: 'var(--primary)', 
+                    marginBottom: '24px',
+                    fontWeight: 800
+                }}>
+                    Thank You For Reaching Out!
+                </h1>
+
+                <p style={{ 
+                    fontSize: '18px', 
+                    color: 'var(--text-muted)', 
+                    lineHeight: '1.7', 
+                    marginBottom: '40px',
+                    maxWidth: '540px',
+                    marginInline: 'auto'
+                }}>
+                    Eduardo or a member of the Shepards K9 team will reach out to you within 24 hours to discuss your dog and schedule your evaluation.
+                </p>
+
+                <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <Link href="/" style={{ 
+                        backgroundColor: 'var(--accent)', 
+                        color: 'white', 
+                        padding: '18px 36px', 
+                        borderRadius: '50px', 
+                        fontWeight: 700, 
+                        fontSize: '16px',
+                        boxShadow: '0 4px 12px rgba(140, 79, 20, 0.3)',
+                        transition: 'transform 0.2s ease'
+                    }}>
+                        Return Home
                     </Link>
-                    <a href={SITE_CONFIG.phoneHref} className="inline-block px-8 py-4 bg-zinc-900 hover:bg-zinc-800 text-white font-bold tracking-wide uppercase rounded transition-colors shadow flex-shrink-0">
-                        {SITE_CONFIG.phone}
+                    <a href={SITE_CONFIG.phoneHref} style={{ 
+                        backgroundColor: 'var(--primary)', 
+                        color: 'white', 
+                        padding: '18px 36px', 
+                        borderRadius: '50px', 
+                        fontWeight: 700, 
+                        fontSize: '16px',
+                        boxShadow: '0 4px 12px rgba(45, 80, 22, 0.2)'
+                    }}>
+                        Call Eduardo: {SITE_CONFIG.phone}
                     </a>
                 </div>
             </div>
