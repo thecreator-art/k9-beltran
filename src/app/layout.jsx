@@ -58,11 +58,6 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
             <head>
-                {/* Resource Hints for Flash Speed */}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-
                 {/* Critical CSS for Instant Paint */}
                 <style dangerouslySetInnerHTML={{ __html: `
                     :root {
@@ -80,9 +75,6 @@ export default function RootLayout({ children }) {
                     h1 { font-family: var(--font-heading); color: var(--white); font-size: clamp(28px, 5vw, 52px); }
                 `}} />
                 
-                {/* Preload Hero Image */}
-                <link rel="preload" fetchPriority="high" as="image" href="/_next/image?url=%2Fphotos%2Fhero-eduardo-boxer-home.jpg&w=1200&q=70" />
-                
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
@@ -90,9 +82,9 @@ export default function RootLayout({ children }) {
             </head>
             <Script
                 src="https://www.googletagmanager.com/gtag/js?id=G-1HS5XKTT4E"
-                strategy="afterInteractive"
+                strategy="lazyOnload"
             />
-            <Script id="google-analytics" strategy="afterInteractive">
+            <Script id="google-analytics" strategy="lazyOnload">
                 {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
