@@ -61,7 +61,7 @@ export default function HomePage() {
                     priority
                     fetchPriority="high"
                     quality={70}
-                    sizes="(max-width: 768px) 100vw, 1200px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
                     className="hero-bg-image"
                 />
                 <div className="container" style={{ width: '100%' }}>
