@@ -64,15 +64,20 @@ export default function RootLayout({ children }) {
                         --primary: #2D5016; --primary-dark: #1E3610; --accent: #8C4F14;
                         --bg-light: #F7F4EF; --text-dark: #1C1C1C; --white: #ffffff;
                         --max-width: 1180px; --font-heading: var(--font-playfair), Georgia, serif;
+                        --gold: #C9A87C; --radius-sm: 6px; --radius-lg: 20px;
                     }
-                    body { margin: 0; padding: 0; background: var(--bg-light); font-family: sans-serif; overflow-x: hidden; }
+                    * { box-sizing: border-box; }
+                    body { margin: 0; padding: 0; background: var(--bg-light); font-family: sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
                     .site-header { position: sticky; top: 0; z-index: 1000; background: var(--primary-dark); height: 70px; }
                     .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 70px; max-width: var(--max-width); margin: 0 auto; }
                     .header-logo { font-family: var(--font-heading); font-size: 22px; font-weight: 900; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; }
-                    .hero { background: var(--bg-light); position: relative; overflow: hidden; min-height: 600px; display: flex; align-items: center; }
+                    .logo-paw { font-size: 28px; }
+                    .hero { background: var(--bg-light); position: relative; overflow: hidden; min-height: 500px; display: flex; align-items: center; }
                     .hero-bg-image { object-fit: cover; object-position: 85% 35%; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
                     .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; width: 100%; position: relative; z-index: 10; }
-                    h1 { font-family: var(--font-heading); color: var(--white); font-size: clamp(28px, 5vw, 52px); }
+                    h1 { font-family: var(--font-heading); color: var(--white); font-size: clamp(28px, 5vw, 52px); line-height: 1.1; margin-bottom: 20px; }
+                    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 50px; font-weight: 700; text-decoration: none; }
+                    .btn-primary { background: var(--accent); color: var(--white); }
                 `}} />
                 
                 <script
