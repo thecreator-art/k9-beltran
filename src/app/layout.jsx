@@ -58,8 +58,14 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
             <head>
+                {/* Resource Hints for Flash Speed */}
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+                
                 {/* Preload Hero Image */}
                 <link rel="preload" fetchPriority="high" as="image" href="/_next/image?url=%2Fphotos%2Fhero-eduardo-boxer-home.jpg&w=1200&q=70" />
+                
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
