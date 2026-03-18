@@ -110,19 +110,16 @@ export default function HomePage() {
                     <div className="sound-familiar-grid" style={{ alignItems: 'flex-start' }}>
                         {/* LEFT: EDUARDO IMAGE */}
                         <div className="sound-familiar-image-wrap">
-                            <picture>
-                                <source srcset="/photos/eduardo-rottweiler-cutout.avif" type="image/avif" />
-                                <img
-                                    src="/photos/eduardo-rottweiler-cutout.png"
-                                    alt="Eduardo Training a Rottweiler"
-                                    width={600}
-                                    height={800}
-                                    style={{ height: 'auto', width: '100%', maxWidth: '520px', objectFit: 'contain', display: 'block' }}
-                                    loading="lazy"
-                                    decoding="async"
-                                    className="sound-familiar-hero-img"
-                                />
-                            </picture>
+                            <img
+                                src="/photos/eduardo-rottweiler-cutout.png"
+                                alt="Eduardo Training a Rottweiler"
+                                width={600}
+                                height={800}
+                                style={{ height: 'auto', width: '100%', maxWidth: '520px', objectFit: 'contain', display: 'block' }}
+                                loading="lazy"
+                                decoding="async"
+                                className="sound-familiar-hero-img"
+                            />
                         </div>
 
                         {/* RIGHT: CONTENT */}
@@ -366,18 +363,15 @@ export default function HomePage() {
                                 <Link href="#hero-form" className="btn btn-primary btn-lg" style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: '#8C4F14', borderColor: '#8C4F14', color: '#FFFFFF', padding: '20px 56px', fontSize: '22px', fontWeight: 700, borderRadius: '100px', boxShadow: '0 8px 24px rgba(140, 79, 20, 0.25)' }}>
                                     Check Availability
                                 </Link>
-                                <picture>
-                                    <source srcset="/photos/pitbull-cutout.avif" type="image/avif" />
-                                    <img
-                                        src="/photos/pitbull-cutout.png"
-                                        alt="Happy White and Grey Pitbull"
-                                        width={400}
-                                        height={500}
-                                        loading="lazy"
-                                        decoding="async"
-                                        style={{ height: '280px', width: 'auto', objectFit: 'contain', display: 'block', transform: 'translateY(-10px)' }}
-                                    />
-                                </picture>
+                                <img
+                                    src="/photos/pitbull-cutout.png"
+                                    alt="Happy White and Grey Pitbull"
+                                    width={400}
+                                    height={500}
+                                    loading="lazy"
+                                    decoding="async"
+                                    style={{ height: '280px', width: 'auto', objectFit: 'contain', display: 'block', transform: 'translateY(-10px)' }}
+                                />
                             </div>
                         </div>
                     </div>
