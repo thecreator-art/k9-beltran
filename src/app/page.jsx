@@ -57,8 +57,9 @@ export default function HomePage() {
                 <Image
                     src="/hero-mobile.webp"
                     alt="Dog training in Murrieta by Eduardo Beltran"
-                    width={800}
+                    width={828}
                     height={600}
+                    quality={75}
                     priority={true}
                     fetchPriority="high"
                     className="hero-bg-image"
