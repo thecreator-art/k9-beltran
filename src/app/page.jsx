@@ -60,6 +60,7 @@ export default function HomePage() {
                     width="828"
                     height="600"
                     fetchpriority="high"
+                    loading="eager"
                     decoding="async"
                     className="hero-bg-image"
                     style={{

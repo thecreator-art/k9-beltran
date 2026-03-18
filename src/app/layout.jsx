@@ -58,21 +58,31 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
             <head>
-                {/* Critical CSS for Above-the-Fold (No UI change, just speed) */}
+                {/* Critical CSS for Instant Rendering (No UI changes) */}
                 <style dangerouslySetInnerHTML={{ __html: `
                     :root {
                         --primary: #2D5016; --primary-dark: #1E3610; --accent: #8C4F14;
                         --bg-light: #F7F4EF; --text-dark: #1C1C1C; --white: #ffffff;
                         --max-width: 1180px; --font-heading: var(--font-playfair), Georgia, serif;
+                        --font-body: var(--font-inter), sans-serif;
                     }
-                    body { margin: 0; padding: 0; background: var(--bg-light); font-family: sans-serif; overflow-x: hidden; }
+                    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+                    body { background: var(--bg-light); color: var(--text-dark); font-family: var(--font-body); overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; }
                     .site-header { position: sticky; top: 0; z-index: 1000; background: var(--primary-dark); height: 70px; }
                     .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 70px; max-width: var(--max-width); margin: 0 auto; }
+                    .header-logo { font-family: var(--font-heading); color: white; text-decoration: none; font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+                    .header-nav { display: none; } 
+                    @media (min-width: 1024px) { .header-nav { display: flex; list-style: none; gap: 24px; color: white; font-weight: 500; font-size: 14px; } }
                     .hero { background: var(--bg-light); position: relative; overflow: hidden; min-height: 600px; display: flex; align-items: center; }
-                    .hero-bg-image { object-fit: cover; object-position: 85% 35%; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
-                    h1 { font-family: var(--font-heading); color: var(--white); font-size: clamp(28px, 5vw, 52px); }
+                    .hero-bg-image { object-fit: cover; object-position: 85% 35%; width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 0; }
+                    h1 { font-family: var(--font-heading); color: var(--white); font-size: clamp(28px, 5vw, 52px); line-height: 1.1; margin-bottom: 20px; }
+                    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+                    .btn-primary { background: var(--accent); color: var(--white); }
+                    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; width: 100%; position: relative; z-index: 1; }
                 `}} />
 
+                {/* Explicit LCP Preload for Mobile Speed */}
+                <link rel="preload" as="image" href="/hero-mobile.avif" type="image/avif" fetchPriority="high" />
                 
                 <script
                     type="application/ld+json"
@@ -81,9 +91,9 @@ export default function RootLayout({ children }) {
             </head>
             <Script
                 src="https://www.googletagmanager.com/gtag/js?id=G-1HS5XKTT4E"
-                strategy="afterInteractive"
+                strategy="lazyOnload"
             />
-            <Script id="google-analytics" strategy="afterInteractive">
+            <Script id="google-analytics" strategy="lazyOnload">
                 {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
