@@ -54,26 +54,29 @@ export default function HomePage() {
 
             {/* HERO */}
             <section className="hero">
-                {/* RAW IMG FOR INSTANT LCP - Bypassing Next.js Pipeline */}
-                <img
-                    src="/hero-mobile.webp"
-                    alt="Dog training in Murrieta by Eduardo Beltran"
-                    width="828"
-                    height="600"
-                    fetchpriority="high"
-                    loading="eager"
-                    className="hero-bg-image"
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        objectPosition: '85% 35%',
-                        zIndex: 0
-                    }}
-                />
+                <picture>
+                    <source srcset="/hero-mobile.avif" type="image/avif" />
+                    <source srcset="/hero-mobile.webp" type="image/webp" />
+                    <img
+                        src="/hero-mobile.webp"
+                        alt="Dog training in Murrieta by Eduardo Beltran"
+                        width="828"
+                        height="600"
+                        fetchpriority="high"
+                        decoding="async"
+                        className="hero-bg-image"
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            objectPosition: '85% 35%',
+                            zIndex: 0
+                        }}
+                    />
+                </picture>
                 <div className="container" style={{ width: '100%' }}>
                     <div className="hero-inner">
                         <div className="hero-content">
@@ -111,17 +114,19 @@ export default function HomePage() {
                     <div className="sound-familiar-grid" style={{ alignItems: 'flex-start' }}>
                         {/* LEFT: EDUARDO IMAGE */}
                         <div className="sound-familiar-image-wrap">
-                            <Image
-                                src="/photos/eduardo-rottweiler-cutout.png"
-                                alt="Eduardo Training a Rottweiler"
-                                width={600}
-                                height={800}
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                style={{ height: 'auto', width: '100%', maxWidth: '520px', objectFit: 'contain', display: 'block' }}
-                                loading="lazy"
-                                fetchPriority="low"
-                                className="sound-familiar-hero-img"
-                            />
+                            <picture>
+                                <source srcset="/photos/eduardo-rottweiler-cutout.avif" type="image/avif" />
+                                <img
+                                    src="/photos/eduardo-rottweiler-cutout.png"
+                                    alt="Eduardo Training a Rottweiler"
+                                    width={600}
+                                    height={800}
+                                    style={{ height: 'auto', width: '100%', maxWidth: '520px', objectFit: 'contain', display: 'block' }}
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="sound-familiar-hero-img"
+                                />
+                            </picture>
                         </div>
 
                         {/* RIGHT: CONTENT */}
@@ -243,22 +248,23 @@ export default function HomePage() {
 
                         {/* RIGHT COLUMN: SINGLE PORTRAIT PHOTO */}
                         <div>
-                            <Image
-                                src="/photos/about-eduardo-trees.jpg"
-                                alt="Eduardo Beltran Training outdoors"
-                                width={600}
-                                height={800}
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                style={{
-                                    width: '100%',
-                                    height: 'auto',
-                                    borderRadius: '16px',
-                                    display: 'block'
-                                }}
-                                quality={60}
-                                loading="lazy"
-                                fetchPriority="low"
-                            />
+                            <picture>
+                                <source srcset="/photos/about-eduardo-trees.avif" type="image/avif" />
+                                <img
+                                    src="/photos/about-eduardo-trees.jpg"
+                                    alt="Eduardo Beltran Training outdoors"
+                                    width={600}
+                                    height={800}
+                                    style={{
+                                        width: '100%',
+                                        height: 'auto',
+                                        borderRadius: '16px',
+                                        display: 'block'
+                                    }}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
                         </div>
 
                     </div>
@@ -290,16 +296,16 @@ export default function HomePage() {
                 backgroundColor: '#1E3610',
                 padding: '0 24px'
             }}>
-                <Image
-                    src="/photos/off-leash-field.jpg"
-                    alt="Off-leash dog training session in an open field"
-                    fill
-                    sizes="100vw"
-                    quality={55}
-                    style={{ objectFit: 'cover' }}
-                    loading="lazy"
-                    fetchPriority="low"
-                />
+                <picture>
+                    <source srcset="/photos/off-leash-field.avif" type="image/avif" />
+                    <img
+                        src="/photos/off-leash-field.jpg"
+                        alt="Off-leash dog training session in an open field"
+                        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </picture>
                 {/* Dark Gradient Overlay for readability */}
                 <div style={{
                     position: 'absolute',
@@ -364,15 +370,18 @@ export default function HomePage() {
                                 <Link href="#hero-form" className="btn btn-primary btn-lg" style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: '#8C4F14', borderColor: '#8C4F14', color: '#FFFFFF', padding: '20px 56px', fontSize: '22px', fontWeight: 700, borderRadius: '100px', boxShadow: '0 8px 24px rgba(140, 79, 20, 0.25)' }}>
                                     Check Availability
                                 </Link>
-                                <Image
-                                    src="/photos/pitbull-cutout.png"
-                                    alt="Happy White and Grey Pitbull"
-                                    width={400}
-                                    height={500}
-                                    sizes="(max-width: 768px) 50vw, 400px"
-                                    loading="lazy"
-                                    style={{ height: '280px', width: 'auto', objectFit: 'contain', display: 'block', transform: 'translateY(-10px)' }}
-                                />
+                                <picture>
+                                    <source srcset="/photos/pitbull-cutout.avif" type="image/avif" />
+                                    <img
+                                        src="/photos/pitbull-cutout.png"
+                                        alt="Happy White and Grey Pitbull"
+                                        width={400}
+                                        height={500}
+                                        loading="lazy"
+                                        decoding="async"
+                                        style={{ height: '280px', width: 'auto', objectFit: 'contain', display: 'block', transform: 'translateY(-10px)' }}
+                                    />
+                                </picture>
                             </div>
                         </div>
                     </div>
@@ -404,16 +413,16 @@ export default function HomePage() {
                 backgroundColor: '#1E3610',
                 borderBottom: '1px solid rgba(255,255,255,0.08)'
             }}>
-                <Image
-                    src="/photos/real-life-doberman.jpg"
-                    alt="Doberman standing calmly during real-world obedience training"
-                    fill
-                    sizes="100vw"
-                    quality={55}
-                    style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
-                    loading="lazy"
-                    fetchPriority="low"
-                />
+                <picture>
+                    <source srcset="/photos/real-life-doberman.avif" type="image/avif" />
+                    <img
+                        src="/photos/real-life-doberman.jpg"
+                        alt="Doberman standing calmly during real-world obedience training"
+                        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 35%' }}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </picture>
                 <div style={{
                     position: 'absolute',
                     inset: 0,
