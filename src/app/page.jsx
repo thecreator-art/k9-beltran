@@ -54,29 +54,25 @@ export default function HomePage() {
 
             {/* HERO */}
             <section className="hero">
-                <picture>
-                    <source srcset="/hero-mobile.avif" type="image/avif" />
-                    <source srcset="/hero-mobile.webp" type="image/webp" />
-                    <img
-                        src="/hero-mobile.webp"
-                        alt="Dog training in Murrieta by Eduardo Beltran"
-                        width="828"
-                        height="600"
-                        fetchpriority="high"
-                        decoding="async"
-                        className="hero-bg-image"
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            objectPosition: '85% 35%',
-                            zIndex: 0
-                        }}
-                    />
-                </picture>
+                <img
+                    src="/hero-mobile.avif"
+                    alt="Dog training in Murrieta by Eduardo Beltran"
+                    width="828"
+                    height="600"
+                    fetchpriority="high"
+                    decoding="async"
+                    className="hero-bg-image"
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: '85% 35%',
+                        zIndex: 0
+                    }}
+                />
                 <div className="container" style={{ width: '100%' }}>
                     <div className="hero-inner">
                         <div className="hero-content">

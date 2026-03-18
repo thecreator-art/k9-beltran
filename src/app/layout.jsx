@@ -73,8 +73,6 @@ export default function RootLayout({ children }) {
                     h1 { font-family: var(--font-heading); color: var(--white); font-size: clamp(28px, 5vw, 52px); }
                 `}} />
 
-                <link rel="preload" as="image" href="/hero-mobile.avif" type="image/avif" fetchPriority="high" />
-                <link rel="preload" as="image" href="/hero-mobile.webp" fetchPriority="high" />
                 
                 <script
                     type="application/ld+json"
