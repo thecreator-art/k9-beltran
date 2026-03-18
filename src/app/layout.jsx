@@ -73,8 +73,12 @@ export default function RootLayout({ children }) {
                     h1 { font-family: var(--font-heading); color: var(--white); font-size: clamp(28px, 5vw, 52px); }
                 `}} />
 
-                {/* Mobile Hero Preload - Skip resizing overhead for LCP */}
-                <link rel="preload" as="image" href="/photos/hero-eduardo-boxer-home.jpg" media="(max-width: 640px)" fetchPriority="high" />
+                <link
+                    rel="preload"
+                    as="image"
+                    href="/_next/image?url=%2Fhero-mobile.webp&w=828&q=75"
+                    fetchPriority="high"
+                />
                 
                 <script
                     type="application/ld+json"

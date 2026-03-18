@@ -55,13 +55,12 @@ export default function HomePage() {
             {/* HERO */}
             <section className="hero">
                 <Image
-                    src="/photos/hero-eduardo-boxer-home.jpg"
-                    alt="Eduardo Beltran working a boxer during a Shepards K9 training session in Murrieta"
-                    fill
+                    src="/hero-mobile.webp"
+                    alt="Dog training in Murrieta by Eduardo Beltran"
+                    width={800}
+                    height={600}
                     priority={true}
                     fetchPriority="high"
-                    quality={68}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1200px) 90vw, 1600px"
                     className="hero-bg-image"
                 />
                 <div className="container" style={{ width: '100%' }}>
