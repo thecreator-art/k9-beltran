@@ -76,7 +76,7 @@ export default function RootLayout({ children }) {
                 <link
                     rel="preload"
                     as="image"
-                    href="/_next/image?url=%2Fhero-mobile.webp&w=828&q=75"
+                    href="/hero-mobile.webp"
                     fetchPriority="high"
                 />
                 

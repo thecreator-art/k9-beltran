@@ -54,15 +54,25 @@ export default function HomePage() {
 
             {/* HERO */}
             <section className="hero">
-                <Image
+                {/* RAW IMG FOR INSTANT LCP - Bypassing Next.js Pipeline */}
+                <img
                     src="/hero-mobile.webp"
                     alt="Dog training in Murrieta by Eduardo Beltran"
-                    width={828}
-                    height={600}
-                    quality={75}
-                    priority={true}
-                    fetchPriority="high"
+                    width="828"
+                    height="600"
+                    fetchpriority="high"
+                    loading="eager"
                     className="hero-bg-image"
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: '85% 35%',
+                        zIndex: 0
+                    }}
                 />
                 <div className="container" style={{ width: '100%' }}>
                     <div className="hero-inner">
